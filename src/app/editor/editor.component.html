@@ -1,0 +1,16 @@
+<div class="container">
+  <textarea
+    class="variable-textarea"
+    [(ngModel)]="markdown"
+    *ngIf="isEditing"
+  ></textarea>
+
+  <div *ngIf="!isEditing" class="markdown-container">
+    <markdown
+      class="variable-binding"
+      [data]="markdown"
+      (ready)="onReady()"
+    ></markdown>
+  </div>
+  <img class="edit" [src]="isEditing ? 'assets/done.svg': 'assets/edit.svg'" alt="edit" (click)="isEditing = !isEditing"/>
+</div>
